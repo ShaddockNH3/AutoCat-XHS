@@ -24,6 +24,9 @@ function enterLiveTab() {
 function enterLiveRoom() {
     // 点击带有“直播中”的卡片
     var liveItem = textContains("直播中").findOne(5000);
+    if (!liveItem) {
+        return;
+    }
     var bounds = liveItem.bounds();
     click(bounds.centerX(), bounds.centerY());
     toast("已进入直播间");
